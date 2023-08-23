@@ -16,9 +16,6 @@ function Table() {
 
   return (
     <>
-      {/* {data?.map((p) => (
-        <li key={p._id}>{p.price} OK</li>
-      ))} */}
       <div className="flex flex-col">
         <div className="-m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">
