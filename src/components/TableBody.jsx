@@ -1,8 +1,19 @@
 /* eslint-disable react/prop-types */
 
-// eslint-disable-next-line react/prop-types
+import axios from "axios";
+import { useEffect } from "react";
 
-function TableBody({ name, provider, category, price }) {
+// const URL = "https://books-api-services.onrender.com/api/v1/books";
+
+function TableBody({ name, provider, category, price, id }) {
+  const DeleteButton = async (params_id) => {
+    await axios.delete(
+      `https://books-api-services.onrender.com/api/v1/books/${params_id}`
+    );
+  };
+
+  useEffect(() => {}, []);
+
   return (
     <>
       <tbody className="bg-gray-700 divide-y divide-gray-200 dark:divide-gray-700">
@@ -30,14 +41,13 @@ function TableBody({ name, provider, category, price }) {
             </a>
           </td>
           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-            <a className="text-blue-500 hover:text-blue-700" href="#">
-              <button
-                type="button"
-                className="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
-              >
-                Delete
-              </button>
-            </a>
+            <button
+              onClick={() => DeleteButton(id)}
+              type="button"
+              className="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+            >
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>
