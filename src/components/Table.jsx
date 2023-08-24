@@ -1,19 +1,12 @@
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import Skeleton from "./Skeleton";
-import { useState } from "react";
-import axios from "axios";
-import { useEffect } from "react";
+import { useAxiosGet } from "../Hooks/useAxiosGet";
 
 function Table() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get("https://books-api-services.onrender.com/api/v1/books/")
-      .then((result) => setData(result.data.data));
-  }, []);
-
+  const { data, items } = useAxiosGet(
+    "https://books-api-services.onrender.com/api/v1/books"
+  );
   return (
     <>
       <div className="flex flex-col">
@@ -21,7 +14,7 @@ function Table() {
           <div className="p-1.5 min-w-full inline-block align-middle">
             <div className="border rounded-lg overflow-hidden dark:border-gray-700">
               <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                <TableHeader />
+                <TableHeader items={items} />
                 {data ? (
                   data.map((p) => (
                     <TableBody
