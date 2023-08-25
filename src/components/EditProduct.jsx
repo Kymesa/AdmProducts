@@ -21,7 +21,7 @@ function EditProduct() {
       setCategory(r.data.data.category);
       setPrice(r.data.data.price);
     });
-  }, []);
+  }, [params]);
 
   const handleFormPut = async (e) => {
     e.preventDefault();
