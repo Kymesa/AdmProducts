@@ -83,13 +83,16 @@ function NewProduct() {
 
           <div className="flex justify-end mt-6">
             <Link to="/">
-              <button className="px-8 mr-5 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-red-400 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+              <button
+                className="px-8 mr-5 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-red-400 rounded-md 
+             focus:outline-none "
+              >
                 Back
               </button>
             </Link>
             <button
               type="submit"
-              className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-green-700 rounded-md hover:bg-gray-600 focus:outline-none "
+              className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-green-700 rounded-md  focus:outline-none "
             >
               Save
             </button>
