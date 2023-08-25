@@ -12,6 +12,7 @@ function NewProduct() {
   const submitForm = async (e) => {
     e.preventDefault();
     const dataPostForm = { name, provider, category, price };
+    // if (name === "" || provider === "" || category === "" || price ||)
     try {
       await axios.post(URL, dataPostForm);
       await Swal.fire({
@@ -39,6 +40,7 @@ function NewProduct() {
             <div>
               <label className="text-gray-700 dark:text-gray-200">Name</label>
               <input
+                required
                 onChange={(e) => setName(e.target.value)}
                 id="name"
                 type="text"
@@ -51,6 +53,7 @@ function NewProduct() {
                 Provider
               </label>
               <input
+                required
                 onChange={(e) => setProvider(e.target.value)}
                 id="provider"
                 type="text"
@@ -63,6 +66,7 @@ function NewProduct() {
                 Category
               </label>
               <input
+                required
                 onChange={(e) => setCategory(e.target.value)}
                 id="category"
                 type="text"
@@ -73,6 +77,7 @@ function NewProduct() {
             <div>
               <label className="text-gray-700 dark:text-gray-200">price</label>
               <input
+                required
                 onChange={(e) => setPrice(e.target.value)}
                 id="price"
                 type="number"
