@@ -21,7 +21,7 @@ function TableBody({
 
   return (
     <>
-      <tbody className="bg-gray-700 divide-y divide-gray-200 dark:divide-gray-700">
+      <tbody className="bg-gray-700 dark:divide-gray-700  divide-y divide-gray-200 ">
         <tr>
           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
             {name}

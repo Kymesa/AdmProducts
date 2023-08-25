@@ -1,7 +1,8 @@
+// eslint-disable-next-line react/prop-types
 function TableHeader({ items }) {
   return (
     <>
-      <thead className="bg-gray-50 dark:bg-gray-700">
+      <thead className="bg-gray-500 dark:bg-gray-700">
         <tr>
           <th
             scope="col"
