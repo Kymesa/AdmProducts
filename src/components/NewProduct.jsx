@@ -17,7 +17,7 @@ function NewProduct() {
       await Swal.fire({
         position: "center",
         icon: "success",
-        title: "Your work has been saved",
+        title: "PRODUCTO CREADO CON EXITO",
         showConfirmButton: false,
         timer: 1500,
       });
