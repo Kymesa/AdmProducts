@@ -7,7 +7,7 @@ import NewProduct from "./components/NewProduct";
 function App() {
   return (
     <>
-      <BrowserRouter basename="/app">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Table />}></Route>
           <Route path="/edit?/:pro" element={<EditProduct />}></Route>
