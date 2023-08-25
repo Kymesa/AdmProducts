@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import axios from "axios";
+import { Link } from "react-router-dom";
 const URL = "https://books-api-services.onrender.com/api/v1/books";
 
 function TableBody({
@@ -36,14 +37,14 @@ function TableBody({
             {price}
           </td>
           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-            <a className="text-blue-500 hover:text-blue-700" href="#">
+            <Link to={`/edit/${id}`}>
               <button
                 type="button"
                 className="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
               >
                 Edit
               </button>
-            </a>
+            </Link>
           </td>
           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
             <button

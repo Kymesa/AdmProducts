@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 const URL = "https://books-api-services.onrender.com/api/v1/books";
 function NewProduct() {
@@ -8,7 +8,7 @@ function NewProduct() {
   const [provider, setProvider] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState(0);
-
+  const navigate = useNavigate();
   const submitForm = async (e) => {
     e.preventDefault();
     const dataPostForm = { name, provider, category, price };
@@ -21,6 +21,7 @@ function NewProduct() {
         showConfirmButton: false,
         timer: 1500,
       });
+      return navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +89,7 @@ function NewProduct() {
             </Link>
             <button
               type="submit"
-              className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-green-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+              className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-green-700 rounded-md hover:bg-gray-600 focus:outline-none "
             >
               Save
             </button>
@@ -99,4 +100,4 @@ function NewProduct() {
   );
 }
 
-export default NewProduct;
+export { NewProduct };

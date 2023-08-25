@@ -15,7 +15,7 @@ function useAxiosGet(url) {
       .get(url)
       .then((result) => setItems(result.data.totalItems))
       .catch((e) => setError(e.message));
-  }, []);
+  }, [url]);
 
   return { data, items, error, setData, setItems };
 }
