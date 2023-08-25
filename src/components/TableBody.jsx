@@ -1,18 +1,23 @@
 /* eslint-disable react/prop-types */
 
 import axios from "axios";
-import { useEffect } from "react";
+const URL = "https://books-api-services.onrender.com/api/v1/books";
 
-// const URL = "https://books-api-services.onrender.com/api/v1/books";
-
-function TableBody({ name, provider, category, price, id }) {
-  const DeleteButton = async (params_id) => {
-    await axios.delete(
-      `https://books-api-services.onrender.com/api/v1/books/${params_id}`
-    );
+function TableBody({
+  name,
+  provider,
+  category,
+  price,
+  id,
+  setData,
+  data,
+  setItems,
+}) {
+  const DeleteButton = async (id) => {
+    await axios.delete(`${URL}/${id}`);
+    setData(data.filter((p) => p._id !== id));
+    setItems(data.length - 1);
   };
-
-  useEffect(() => {}, []);
 
   return (
     <>

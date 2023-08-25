@@ -5,8 +5,7 @@ import { useAxiosGet } from "../Hooks/useAxiosGet";
 const URL = "https://books-api-services.onrender.com/api/v1/books";
 
 function Table() {
-  const { data, items, error, msj } = useAxiosGet(URL);
-
+  const { data, items, error, msj, setData, setItems } = useAxiosGet(URL);
   return (
     <>
       <div className="flex flex-col">
@@ -20,6 +19,9 @@ function Table() {
                 {data ? (
                   data.map((p) => (
                     <TableBody
+                      setItems={setItems}
+                      data={data}
+                      setData={setData}
                       id={p._id}
                       name={p.name}
                       provider={p.provider}
