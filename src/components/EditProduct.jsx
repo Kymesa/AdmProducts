@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 const URL = "https://books-api-services.onrender.com/api/v1/books";
 
 function EditProduct() {
@@ -13,14 +14,17 @@ function EditProduct() {
   const [price, setPrice] = useState(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get(`${URL}/${params}`).then((r) => {
+  const getAxiosPut = async (id) => {
+    await axios.get(`${URL}/${id}`).then((r) => {
       setData(r.data.data);
       setName(r.data.data.name);
       setProvider(r.data.data.provider);
       setCategory(r.data.data.category);
       setPrice(r.data.data.price);
     });
+  };
+  useEffect(() => {
+    getAxiosPut(params);
   }, [params]);
 
   const handleFormPut = async (e) => {
@@ -28,6 +32,13 @@ function EditProduct() {
     try {
       const result = { name, provider, category, price };
       await axios.put(`${URL}/${params}`, result);
+      await Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Producto Actualizado",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       return navigate("/");
     } catch (error) {
       console.log(error);

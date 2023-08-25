@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 const URL = "https://books-api-services.onrender.com/api/v1/books";
 
 function TableBody({
@@ -15,9 +16,22 @@ function TableBody({
   setItems,
 }) {
   const DeleteButton = async (id) => {
-    await axios.delete(`${URL}/${id}`);
-    setData(data.filter((p) => p._id !== id));
-    setItems(data.length - 1);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`${URL}/${id}`);
+        setData(data.filter((p) => p._id !== id));
+        setItems(data.length - 1);
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
   };
 
   return (
