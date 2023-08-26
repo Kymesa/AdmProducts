@@ -15,13 +15,6 @@ function NewProduct() {
     // if (name === "" || provider === "" || category === "" || price ||)
     try {
       await axios.post(URL, dataPostForm);
-      await Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "PRODUCTO CREADO CON EXITO",
-        showConfirmButton: false,
-        timer: 1500,
-      });
       return navigate("/");
     } catch (error) {
       console.log(error);

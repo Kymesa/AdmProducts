@@ -32,13 +32,6 @@ function EditProduct() {
     try {
       const result = { name, provider, category, price };
       await axios.put(`${URL}/${params}`, result);
-      await Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Producto Actualizado",
-        showConfirmButton: false,
-        timer: 1500,
-      });
       return navigate("/");
     } catch (error) {
       console.log(error);

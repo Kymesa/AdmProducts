@@ -16,22 +16,9 @@ function TableBody({
   setItems,
 }) {
   const DeleteButton = async (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios.delete(`${URL}/${id}`);
-        setData(data.filter((p) => p._id !== id));
-        setItems(data.length - 1);
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
-      }
-    });
+    await axios.delete(`${URL}/${id}`);
+    setData(data.filter((p) => p._id !== id));
+    setItems(data.length - 1);
   };
 
   return (
