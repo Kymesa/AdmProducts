@@ -9,11 +9,10 @@ function useAxiosGet(url) {
   useEffect(() => {
     axios
       .get(url)
-      .then((result) => setData(result.data.data))
-      .catch((e) => setError(e.message));
-    axios
-      .get(url)
-      .then((result) => setItems(result.data.totalItems))
+      .then((result) => {
+        setData(result.data.data);
+        setItems(result.data.totalItems);
+      })
       .catch((e) => setError(e.message));
   }, [url]);
 
