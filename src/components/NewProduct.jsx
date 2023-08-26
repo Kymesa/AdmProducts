@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 const URL = "https://books-api-services.onrender.com/api/v1/books";
 function NewProduct() {
   const [name, setName] = useState("");

@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
 const URL = "https://books-api-services.onrender.com/api/v1/books";
 
 function TableBody({
